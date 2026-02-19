@@ -96,11 +96,14 @@ public class MenuManager {
                 List<String> loreLearned   = colorList(getStringList(map, "lore_learned"));
                 Material matUnlearned = parseMaterial((String) map.getOrDefault("material_unlearned", "GRAY_STAINED_GLASS_PANE"));
                 Material matLearned   = parseMaterial((String) map.getOrDefault("material_learned",   "GLOWSTONE"));
+                int cmdUnlearned = toInt(map.getOrDefault("custom_model_data_unlearned", 0));
+                int cmdLearned   = toInt(map.getOrDefault("custom_model_data_learned",   0));
 
                 return new MenuItem(slot, knowledgeId,
                         nameUnlearned, nameLearned,
                         loreUnlearned, loreLearned,
-                        matUnlearned, matLearned);
+                        matUnlearned, matLearned,
+                        cmdUnlearned, cmdLearned);
             } else {
                 // --- Bouton de catégorie / navigation ---
                 String name   = color((String) map.getOrDefault("name",     "&fItem"));
@@ -109,8 +112,9 @@ public class MenuManager {
                 String action  = (String) map.get("action");
                 String submenu = (String) map.get("submenu");
                 String perm    = (String) map.get("permission");
+                int customModelData = toInt(map.getOrDefault("custom_model_data", 0));
 
-                return new MenuItem(slot, material, name, lore, action, submenu, perm);
+                return new MenuItem(slot, material, name, lore, action, submenu, perm, customModelData);
             }
         } catch (Exception e) {
             plugin.getLogger().warning("Erreur lors du parsing d'un item de menu : " + e.getMessage());
@@ -226,6 +230,7 @@ public class MenuManager {
         private final String action;
         private final String submenu;
         private final String permission;
+        private final int customModelData;
 
         // --- Bouton de connaissance ---
         private final String knowledgeId;
@@ -235,10 +240,12 @@ public class MenuManager {
         private final List<String> loreLearned;
         private final Material materialUnlearned;
         private final Material materialLearned;
+        private final int customModelDataUnlearned;
+        private final int customModelDataLearned;
 
         /** Constructeur pour un bouton de catégorie / navigation. */
         public MenuItem(int slot, Material material, String name, List<String> lore,
-                        String action, String submenu, String permission) {
+                        String action, String submenu, String permission, int customModelData) {
             this.slot = slot;
             this.knowledgeItem = false;
             this.material = material;
@@ -247,6 +254,7 @@ public class MenuManager {
             this.action = action;
             this.submenu = submenu;
             this.permission = permission;
+            this.customModelData = customModelData;
             // Champs connaissance inutilisés
             this.knowledgeId = null;
             this.nameUnlearned = null;
@@ -255,13 +263,16 @@ public class MenuManager {
             this.loreLearned = null;
             this.materialUnlearned = null;
             this.materialLearned = null;
+            this.customModelDataUnlearned = 0;
+            this.customModelDataLearned = 0;
         }
 
         /** Constructeur pour un bouton de connaissance. */
         public MenuItem(int slot, String knowledgeId,
                         String nameUnlearned, String nameLearned,
                         List<String> loreUnlearned, List<String> loreLearned,
-                        Material materialUnlearned, Material materialLearned) {
+                        Material materialUnlearned, Material materialLearned,
+                        int customModelDataUnlearned, int customModelDataLearned) {
             this.slot = slot;
             this.knowledgeItem = true;
             this.knowledgeId = knowledgeId;
@@ -271,6 +282,8 @@ public class MenuManager {
             this.loreLearned = loreLearned;
             this.materialUnlearned = materialUnlearned;
             this.materialLearned = materialLearned;
+            this.customModelDataUnlearned = customModelDataUnlearned;
+            this.customModelDataLearned = customModelDataLearned;
             // Champs catégorie inutilisés
             this.material = null;
             this.name = null;
@@ -278,6 +291,7 @@ public class MenuManager {
             this.action = null;
             this.submenu = null;
             this.permission = null;
+            this.customModelData = 0;
         }
 
         public ItemStack createCategoryItem() {
@@ -286,6 +300,7 @@ public class MenuManager {
             if (meta != null) {
                 meta.setDisplayName(name);
                 meta.setLore(lore);
+                if (customModelData > 0) meta.setCustomModelData(customModelData);
                 item.setItemMeta(meta);
             }
             return item;
@@ -297,6 +312,7 @@ public class MenuManager {
             if (meta != null) {
                 meta.setDisplayName(nameUnlearned);
                 meta.setLore(loreUnlearned);
+                if (customModelDataUnlearned > 0) meta.setCustomModelData(customModelDataUnlearned);
                 item.setItemMeta(meta);
             }
             return item;
@@ -308,6 +324,7 @@ public class MenuManager {
             if (meta != null) {
                 meta.setDisplayName(nameLearned);
                 meta.setLore(loreLearned);
+                if (customModelDataLearned > 0) meta.setCustomModelData(customModelDataLearned);
                 item.setItemMeta(meta);
             }
             return item;
