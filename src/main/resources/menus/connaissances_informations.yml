@@ -17,6 +17,7 @@ items:
     action: open_submenu
     submenu: "informations/tours"
     permission: "elbram.informations.tours"
+    # custom_model_data: 0
 
   - slot: 20
     material: OAK_LOG
@@ -28,6 +29,7 @@ items:
     action: open_submenu
     submenu: "informations/construction"
     permission: "elbram.informations.construction"
+    # custom_model_data: 0
 
   - slot: 24
     material: IRON_SWORD
@@ -39,3 +41,4 @@ items:
     action: open_submenu
     submenu: "informations/combat"
     permission: "elbram.informations.combat"
+    # custom_model_data: 0

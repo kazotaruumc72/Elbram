@@ -14,12 +14,14 @@ items:
       - ""
       - "&eCliquez pour apprendre"
     material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
     name_learned: "&a✔ Tour de Garde"
     lore_learned:
       - "&8Une tour solide pour défendre"
       - ""
       - "&a&lAppris !"
     material_learned: "STONE_BRICKS"
+    # custom_model_data_learned: 0
 
   - slot: 11
     knowledge_id: "informations.tours.archer"
@@ -29,12 +31,14 @@ items:
       - ""
       - "&eCliquez pour apprendre"
     material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
     name_learned: "&a✔ Tour d'Archer"
     lore_learned:
       - "&8Tour pour tireurs d'élite"
       - ""
       - "&a&lAppris !"
     material_learned: "STONE_BRICKS"
+    # custom_model_data_learned: 0
 
   - slot: 12
     knowledge_id: "informations.tours.guet"
@@ -44,12 +48,14 @@ items:
       - ""
       - "&eCliquez pour apprendre"
     material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
     name_learned: "&a✔ Tour de Guet"
     lore_learned:
       - "&8Une tour pour surveiller"
       - ""
       - "&a&lAppris !"
     material_learned: "COBBLESTONE"
+    # custom_model_data_learned: 0
 
   - slot: 13
     knowledge_id: "informations.tours.mage"
@@ -59,12 +65,14 @@ items:
       - ""
       - "&eCliquez pour apprendre"
     material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
     name_learned: "&a✔ Tour de Mage"
     lore_learned:
       - "&8Tour pour lanceurs de sorts"
       - ""
       - "&a&lAppris !"
     material_learned: "PURPUR_BLOCK"
+    # custom_model_data_learned: 0
 
   - slot: 14
     knowledge_id: "informations.tours.siege"
@@ -74,9 +82,11 @@ items:
       - ""
       - "&eCliquez pour apprendre"
     material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
     name_learned: "&a✔ Tour de Siège"
     lore_learned:
       - "&8Tour d'attaque puissante"
       - ""
       - "&a&lAppris !"
     material_learned: "DARK_OAK_LOG"
+    # custom_model_data_learned: 0
