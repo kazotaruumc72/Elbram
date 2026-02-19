@@ -1,0 +1,26 @@
+# =============================================
+# Configuration principale d'Elbram
+# =============================================
+
+# Titre du GUI principal (6 lignes)
+gui:
+  title: "&8Connaissances"
+
+  # Item au centre de la ligne du haut (slot 4)
+  # Cliquer cet item ouvre le menu de navigation
+  item:
+    material: BOOK
+    custom-model-data: 0   # 0 = désactivé
+    name: "&6&lConnaissances"
+    lore:
+      - "&7Cliquez pour naviguer"
+      - "&edans les types de connaissances"
+
+# Item physique donné au joueur par /elbram apprendre
+knowledge-item:
+  material: BOOK
+  custom-model-data: 0   # 0 = désactivé
+  name: "&6&lLivre de Connaissances"
+  lore:
+    - "&7Clic droit pour ouvrir"
+    - "&ele menu des connaissances"
