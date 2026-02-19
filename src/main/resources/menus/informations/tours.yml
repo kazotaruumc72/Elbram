@@ -1,0 +1,82 @@
+# =============================================
+# Menu des informations sur les Tours
+# Accessible avec la permission :
+#   elbram.informations.tours
+# =============================================
+title: "&8Informations &7— &6Tours"
+
+items:
+  - slot: 10
+    knowledge_id: "informations.tours.garde"
+    name_unlearned: "&7Tour de Garde"
+    lore_unlearned:
+      - "&8Une tour solide pour défendre"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    name_learned: "&a✔ Tour de Garde"
+    lore_learned:
+      - "&8Une tour solide pour défendre"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "STONE_BRICKS"
+
+  - slot: 11
+    knowledge_id: "informations.tours.archer"
+    name_unlearned: "&7Tour d'Archer"
+    lore_unlearned:
+      - "&8Tour pour tireurs d'élite"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    name_learned: "&a✔ Tour d'Archer"
+    lore_learned:
+      - "&8Tour pour tireurs d'élite"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "STONE_BRICKS"
+
+  - slot: 12
+    knowledge_id: "informations.tours.guet"
+    name_unlearned: "&7Tour de Guet"
+    lore_unlearned:
+      - "&8Une tour pour surveiller"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    name_learned: "&a✔ Tour de Guet"
+    lore_learned:
+      - "&8Une tour pour surveiller"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "COBBLESTONE"
+
+  - slot: 13
+    knowledge_id: "informations.tours.mage"
+    name_unlearned: "&7Tour de Mage"
+    lore_unlearned:
+      - "&8Tour pour lanceurs de sorts"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    name_learned: "&a✔ Tour de Mage"
+    lore_learned:
+      - "&8Tour pour lanceurs de sorts"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "PURPUR_BLOCK"
+
+  - slot: 14
+    knowledge_id: "informations.tours.siege"
+    name_unlearned: "&7Tour de Siège"
+    lore_unlearned:
+      - "&8Tour d'attaque puissante"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    name_learned: "&a✔ Tour de Siège"
+    lore_learned:
+      - "&8Tour d'attaque puissante"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "DARK_OAK_LOG"

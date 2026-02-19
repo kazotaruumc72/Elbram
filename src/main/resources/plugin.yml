@@ -1,0 +1,22 @@
+name: Elbram
+version: '${project.version}'
+main: fr.kazotaruumc72.elbram.Elbram
+api-version: '1.21'
+description: Système de connaissances joueurs
+
+commands:
+  elbram:
+    description: Commande principale d'Elbram
+    usage: /elbram <apprendre|reload>
+    aliases: [elb]
+
+permissions:
+  elbram.apprendre:
+    description: Recevoir le livre de connaissances
+    default: op
+  elbram.admin:
+    description: Accès aux commandes d'administration
+    default: op
+  elbram.informations.tours:
+    description: Accès aux informations sur les tours
+    default: false
