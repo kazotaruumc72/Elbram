@@ -111,8 +111,10 @@ public class KnowledgeGUI implements InventoryHolder {
      * Sinon, le menu de sélection général est affiché.
      */
     private String determineInitialMenu() {
-        if (player.hasPermission("elbram.informations.tours")) {
-            return "informations/tours";
+        if (player.hasPermission("elbram.informations.tours")
+                || player.hasPermission("elbram.informations.construction")
+                || player.hasPermission("elbram.informations.combat")) {
+            return "connaissances_profil";
         }
         return "connaissances_informations";
     }

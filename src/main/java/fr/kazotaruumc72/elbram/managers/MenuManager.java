@@ -32,6 +32,7 @@ public class MenuManager {
     public MenuManager(Elbram plugin) {
         this.plugin = plugin;
         saveDefaultMenu("menus/connaissances_informations.yml");
+        saveDefaultMenu("menus/connaissances_profil.yml");
         saveDefaultMenu("menus/informations/tours.yml");
     }
 
@@ -75,12 +76,58 @@ public class MenuManager {
             for (Object obj : rawList) {
                 if (obj instanceof Map<?, ?> raw) {
                     @SuppressWarnings("unchecked")
-                    MenuItem item = parseMenuItem((Map<String, Object>) raw);
-                    if (item != null) items.add(item);
+                    items.addAll(parseMenuItems((Map<String, Object>) raw));
                 }
             }
         }
         return new MenuConfig(title, items);
+    }
+
+    private List<MenuItem> parseMenuItems(Map<String, Object> map) {
+        List<Integer> slots = expandSlots(map);
+        List<MenuItem> result = new ArrayList<>();
+        for (int slot : slots) {
+            Map<String, Object> slotMap = new java.util.HashMap<>(map);
+            slotMap.put("slot", slot);
+            MenuItem item = parseMenuItem(slotMap);
+            if (item != null) result.add(item);
+        }
+        return result;
+    }
+
+    private List<Integer> expandSlots(Map<String, Object> map) {
+        Object slotsVal = map.get("slots");
+        if (slotsVal instanceof List<?> list) {
+            List<Integer> result = new ArrayList<>();
+            for (Object entry : list) {
+                if (entry instanceof Integer i) {
+                    result.add(i);
+                } else if (entry instanceof String s) {
+                    if (s.contains("-")) {
+                        try {
+                            String[] parts = s.split("-", 2);
+                            int start = Integer.parseInt(parts[0].trim());
+                            int end   = Integer.parseInt(parts[1].trim());
+                            if (start > end) {
+                                plugin.getLogger().warning("Plage de slots invalide (start > end) : " + s);
+                            } else {
+                                for (int i = start; i <= end; i++) result.add(i);
+                            }
+                        } catch (NumberFormatException e) {
+                            plugin.getLogger().warning("Plage de slots malformée : " + s);
+                        }
+                    } else {
+                        try {
+                            result.add(Integer.parseInt(s.trim()));
+                        } catch (NumberFormatException e) {
+                            plugin.getLogger().warning("Valeur de slot invalide : " + s);
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+        return List.of(toInt(map.getOrDefault("slot", 0)));
     }
 
     private MenuItem parseMenuItem(Map<String, Object> map) {
