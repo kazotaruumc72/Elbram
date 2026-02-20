@@ -1,6 +1,7 @@
 package fr.kazotaruumc72.elbram.managers;
 
 import fr.kazotaruumc72.elbram.Elbram;
+import fr.kazotaruumc72.elbram.model.Rarity;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -73,6 +74,42 @@ public class MenuManager {
             }
         }
         return knowledgeId;
+    }
+
+    /**
+     * Retourne la rareté d'une Information à partir de son identifiant.
+     * Parcourt tous les menus enregistrés ; retourne {@link Rarity#COMMON} si introuvable.
+     */
+    public Rarity getKnowledgeRarity(String knowledgeId) {
+        for (String menuName : registeredMenus) {
+            MenuConfig config = loadMenu(menuName);
+            if (config == null) continue;
+            for (MenuItem item : config.getItems()) {
+                if (item.isKnowledgeItem() && knowledgeId.equals(item.getKnowledgeId())) {
+                    return item.getRarity();
+                }
+            }
+        }
+        return Rarity.COMMON;
+    }
+
+    /**
+     * Retourne la liste des identifiants d'Informations dont le prérequis direct
+     * ({@code skill_required}) est {@code prerequisiteId}.
+     * Utilisé pour calculer l'obsolescence en cascade lors d'un transfert.
+     */
+    public List<String> getDependentKnowledge(String prerequisiteId) {
+        List<String> dependents = new ArrayList<>();
+        for (String menuName : registeredMenus) {
+            MenuConfig config = loadMenu(menuName);
+            if (config == null) continue;
+            for (MenuItem item : config.getItems()) {
+                if (item.isKnowledgeItem() && prerequisiteId.equals(item.getSkillRequired())) {
+                    dependents.add(item.getKnowledgeId());
+                }
+            }
+        }
+        return dependents;
     }
 
     // -------------------------------------------------------------------------
@@ -180,13 +217,14 @@ public class MenuManager {
                 int cmdLearned   = toInt(map.getOrDefault("custom_model_data_learned",   0));
                 String skillRequired = (String) map.get("skill_required");
                 List<String> bonuses = getStringList(map, "bonuses");
+                Rarity rarity = Rarity.fromString((String) map.get("rarity"));
 
                 return new MenuItem(slot, knowledgeId,
                         nameUnlearned, nameLearned,
                         loreUnlearned, loreLearned,
                         matUnlearned, matLearned,
                         cmdUnlearned, cmdLearned,
-                        skillRequired, bonuses);
+                        skillRequired, bonuses, rarity);
             } else {
                 // --- Bouton de catégorie / navigation ---
                 String name   = color((String) map.getOrDefault("name",     "&fItem"));
@@ -327,6 +365,7 @@ public class MenuManager {
         private final int customModelDataLearned;
         private final String skillRequired;
         private final List<String> bonuses;
+        private final Rarity rarity;
 
         /** Constructeur pour un bouton de catégorie / navigation. */
         public MenuItem(int slot, Material material, String name, List<String> lore,
@@ -352,6 +391,7 @@ public class MenuManager {
             this.customModelDataLearned = 0;
             this.skillRequired = null;
             this.bonuses = List.of();
+            this.rarity = Rarity.COMMON;
         }
 
         /** Constructeur pour un bouton de connaissance. */
@@ -360,7 +400,7 @@ public class MenuManager {
                         List<String> loreUnlearned, List<String> loreLearned,
                         Material materialUnlearned, Material materialLearned,
                         int customModelDataUnlearned, int customModelDataLearned,
-                        String skillRequired, List<String> bonuses) {
+                        String skillRequired, List<String> bonuses, Rarity rarity) {
             this.slot = slot;
             this.knowledgeItem = true;
             this.knowledgeId = knowledgeId;
@@ -374,6 +414,7 @@ public class MenuManager {
             this.customModelDataLearned = customModelDataLearned;
             this.skillRequired = skillRequired;
             this.bonuses = bonuses != null ? bonuses : List.of();
+            this.rarity = rarity != null ? rarity : Rarity.COMMON;
             // Champs catégorie inutilisés
             this.material = null;
             this.name = null;
@@ -429,5 +470,6 @@ public class MenuManager {
         public String getNameLearned() { return nameLearned; }
         public String getSkillRequired() { return skillRequired; }
         public List<String> getBonuses() { return bonuses; }
+        public Rarity getRarity() { return rarity; }
     }
 }

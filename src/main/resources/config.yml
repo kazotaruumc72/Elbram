@@ -24,3 +24,12 @@ knowledge-item:
   lore:
     - "&7Clic droit pour ouvrir"
     - "&ele menu des connaissances"
+
+# =============================================
+# Échange asymétrique (/apprendre)
+# =============================================
+transfer:
+  # Probabilité (en %) que chaque Information vulnérable (COMMON à EPIC inclus)
+  # du receveur soit définitivement perdue lors d'un échange.
+  # Valeur entre 0 (aucune perte) et 100 (perte garantie).
+  receiver-loss-chance: 30

@@ -18,6 +18,7 @@ title: "&8Informations &7— &6Exploration"
 items:
   - slot: 10
     knowledge_id: "informations.exploration.chercheur_tresor_1"
+    rarity: COMMON
     name_unlearned: "&7Chercheur de Trésor I"
     lore_unlearned:
       - "&8Flair pour dénicher de bons objets"
@@ -39,6 +40,7 @@ items:
 
   - slot: 11
     knowledge_id: "informations.exploration.chercheur_tresor_2"
+    rarity: UNCOMMON
     skill_required: "informations.exploration.chercheur_tresor_1"
     name_unlearned: "&7Chercheur de Trésor II"
     lore_unlearned:
@@ -62,6 +64,7 @@ items:
 
   - slot: 12
     knowledge_id: "informations.exploration.chercheur_tresor_3"
+    rarity: RARE
     skill_required: "informations.exploration.chercheur_tresor_2"
     name_unlearned: "&7Chercheur de Trésor III"
     lore_unlearned:

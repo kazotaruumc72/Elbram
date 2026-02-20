@@ -15,6 +15,9 @@ commands:
   profil:
     description: Ouvre le menu de connaissances du joueur
     usage: /profil
+  apprendre:
+    description: Transmet une Information à un autre joueur (échange asymétrique)
+    usage: /apprendre <joueur> <connaissance>
 
 permissions:
   elbram.apprendre:
@@ -23,6 +26,9 @@ permissions:
   elbram.admin:
     description: Accès aux commandes d'administration
     default: op
+  elbram.teach:
+    description: Transmettre une Information à un autre joueur via /apprendre
+    default: true
   elbram.informations.tours:
     description: Accès aux informations sur les tours
     default: false

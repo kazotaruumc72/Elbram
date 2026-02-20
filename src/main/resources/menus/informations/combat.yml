@@ -8,6 +8,7 @@ title: "&8Informations &7— &6Combat"
 items:
   - slot: 10
     knowledge_id: "informations.combat.epee"
+    rarity: COMMON
     name_unlearned: "&7Épée"
     lore_unlearned:
       - "&8Maîtrise du combat à l'épée"
@@ -25,6 +26,7 @@ items:
 
   - slot: 11
     knowledge_id: "informations.combat.arc"
+    rarity: COMMON
     name_unlearned: "&7Arc"
     lore_unlearned:
       - "&8Techniques de tir à l'arc"
@@ -42,6 +44,7 @@ items:
 
   - slot: 12
     knowledge_id: "informations.combat.bouclier"
+    rarity: UNCOMMON
     name_unlearned: "&7Bouclier"
     lore_unlearned:
       - "&8Défense et parade au bouclier"
@@ -59,6 +62,7 @@ items:
 
   - slot: 13
     knowledge_id: "informations.combat.hache"
+    rarity: RARE
     name_unlearned: "&7Hache"
     lore_unlearned:
       - "&8Combat à la hache de guerre"
@@ -76,6 +80,7 @@ items:
 
   - slot: 14
     knowledge_id: "informations.combat.lance"
+    rarity: EPIC
     name_unlearned: "&7Lance"
     lore_unlearned:
       - "&8Maniement de la lance"

@@ -85,6 +85,11 @@ public class GUIListener implements Listener {
             return;
         }
 
+        if (km.isBlocked(player.getUniqueId(), id)) {
+            player.sendMessage("§cCette information vous est définitivement inaccessible.");
+            return;
+        }
+
         String skill = item.getSkillRequired();
         if (skill != null && !skill.isEmpty() && !km.hasLearned(player.getUniqueId(), skill)) {
             String skillName = plugin.getMenuManager().getKnowledgeName(skill);
