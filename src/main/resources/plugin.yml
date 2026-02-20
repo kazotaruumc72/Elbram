@@ -4,6 +4,9 @@ main: fr.kazotaruumc72.elbram.Elbram
 api-version: '1.21'
 description: Système de connaissances joueurs
 
+depend:
+  - Quantum
+
 commands:
   elbram:
     description: Commande principale d'Elbram
