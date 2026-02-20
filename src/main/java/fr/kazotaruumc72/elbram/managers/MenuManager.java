@@ -34,6 +34,8 @@ public class MenuManager {
         saveDefaultMenu("menus/connaissances_informations.yml");
         saveDefaultMenu("menus/connaissances_profil.yml");
         saveDefaultMenu("menus/informations/tours.yml");
+        saveDefaultMenu("menus/informations/construction.yml");
+        saveDefaultMenu("menus/informations/combat.yml");
     }
 
     private void saveDefaultMenu(String path) {

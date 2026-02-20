@@ -21,3 +21,39 @@ items:
     material: BARRIER
     name: ""
     action: close
+
+  - slot: 20
+    material: OAK_LOG
+    name: "&6Construction"
+    lore:
+      - "&7Techniques de construction"
+      - ""
+      - "&eCliquez pour explorer"
+    action: open_submenu
+    submenu: "informations/construction"
+    permission: "elbram.informations.construction"
+    # custom_model_data: 0
+
+  - slot: 22
+    material: STONE_BRICKS
+    name: "&6Tours"
+    lore:
+      - "&7Apprenez tout sur les tours"
+      - ""
+      - "&eCliquez pour explorer"
+    action: open_submenu
+    submenu: "informations/tours"
+    permission: "elbram.informations.tours"
+    # custom_model_data: 0
+
+  - slot: 24
+    material: IRON_SWORD
+    name: "&6Combat"
+    lore:
+      - "&7Techniques de combat"
+      - ""
+      - "&eCliquez pour explorer"
+    action: open_submenu
+    submenu: "informations/combat"
+    permission: "elbram.informations.combat"
+    # custom_model_data: 0
