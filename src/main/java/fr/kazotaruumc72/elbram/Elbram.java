@@ -2,8 +2,10 @@ package fr.kazotaruumc72.elbram;
 
 import fr.kazotaruumc72.elbram.commands.ElbramCommand;
 import fr.kazotaruumc72.elbram.commands.ProfilCommand;
+import fr.kazotaruumc72.elbram.listeners.ChestBonusListener;
 import fr.kazotaruumc72.elbram.listeners.GUIListener;
 import fr.kazotaruumc72.elbram.listeners.ItemListener;
+import fr.kazotaruumc72.elbram.managers.BonusManager;
 import fr.kazotaruumc72.elbram.managers.KnowledgeManager;
 import fr.kazotaruumc72.elbram.managers.MenuManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,6 +15,7 @@ public class Elbram extends JavaPlugin {
     private static Elbram instance;
     private KnowledgeManager knowledgeManager;
     private MenuManager menuManager;
+    private BonusManager bonusManager;
 
     @Override
     public void onEnable() {
@@ -21,6 +24,8 @@ public class Elbram extends JavaPlugin {
 
         knowledgeManager = new KnowledgeManager(this);
         menuManager = new MenuManager(this);
+        bonusManager = new BonusManager(this);
+        bonusManager.init();
 
         ElbramCommand elbramCommand = new ElbramCommand(this);
         getCommand("elbram").setExecutor(elbramCommand);
@@ -30,6 +35,7 @@ public class Elbram extends JavaPlugin {
         getCommand("profil").setTabCompleter(profilCommand);
         getServer().getPluginManager().registerEvents(new GUIListener(this), this);
         getServer().getPluginManager().registerEvents(new ItemListener(this), this);
+        getServer().getPluginManager().registerEvents(new ChestBonusListener(this), this);
 
         getLogger().info("Elbram activé !");
     }
@@ -52,5 +58,9 @@ public class Elbram extends JavaPlugin {
 
     public MenuManager getMenuManager() {
         return menuManager;
+    }
+
+    public BonusManager getBonusManager() {
+        return bonusManager;
     }
 }

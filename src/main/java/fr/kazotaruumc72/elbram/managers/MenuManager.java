@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -28,6 +29,7 @@ public class MenuManager {
     public static final String KNOWLEDGE_BOOK_KEY = "knowledge_book";
 
     private final Elbram plugin;
+    private final List<String> registeredMenus = new ArrayList<>();
 
     public MenuManager(Elbram plugin) {
         this.plugin = plugin;
@@ -36,6 +38,7 @@ public class MenuManager {
         saveDefaultMenu("menus/informations/tours.yml");
         saveDefaultMenu("menus/informations/construction.yml");
         saveDefaultMenu("menus/informations/combat.yml");
+        saveDefaultMenu("menus/informations/exploration.yml");
     }
 
     private void saveDefaultMenu(String path) {
@@ -43,6 +46,33 @@ public class MenuManager {
         if (!file.exists()) {
             plugin.saveResource(path, false);
         }
+        String menuName = path.substring("menus/".length(), path.length() - ".yml".length());
+        if (!registeredMenus.contains(menuName)) {
+            registeredMenus.add(menuName);
+        }
+    }
+
+    /** Retourne la liste de tous les menus enregistrés (chemin relatif sans préfixe/suffixe). */
+    public List<String> getRegisteredMenus() {
+        return Collections.unmodifiableList(registeredMenus);
+    }
+
+    /**
+     * Recherche le nom lisible d'un item de connaissance à partir de son identifiant.
+     * Parcourt tous les menus enregistrés et retourne le nom "appris" de l'item si trouvé,
+     * sinon retourne l'identifiant brut.
+     */
+    public String getKnowledgeName(String knowledgeId) {
+        for (String menuName : registeredMenus) {
+            MenuConfig config = loadMenu(menuName);
+            if (config == null) continue;
+            for (MenuItem item : config.getItems()) {
+                if (item.isKnowledgeItem() && knowledgeId.equals(item.getKnowledgeId())) {
+                    return ChatColor.stripColor(item.getNameLearned());
+                }
+            }
+        }
+        return knowledgeId;
     }
 
     // -------------------------------------------------------------------------
@@ -148,12 +178,15 @@ public class MenuManager {
                 Material matLearned   = parseMaterial((String) map.getOrDefault("material_learned",   "GLOWSTONE"));
                 int cmdUnlearned = toInt(map.getOrDefault("custom_model_data_unlearned", 0));
                 int cmdLearned   = toInt(map.getOrDefault("custom_model_data_learned",   0));
+                String skillRequired = (String) map.get("skill_required");
+                List<String> bonuses = getStringList(map, "bonuses");
 
                 return new MenuItem(slot, knowledgeId,
                         nameUnlearned, nameLearned,
                         loreUnlearned, loreLearned,
                         matUnlearned, matLearned,
-                        cmdUnlearned, cmdLearned);
+                        cmdUnlearned, cmdLearned,
+                        skillRequired, bonuses);
             } else {
                 // --- Bouton de catégorie / navigation ---
                 String name   = color((String) map.getOrDefault("name",     "&fItem"));
@@ -292,6 +325,8 @@ public class MenuManager {
         private final Material materialLearned;
         private final int customModelDataUnlearned;
         private final int customModelDataLearned;
+        private final String skillRequired;
+        private final List<String> bonuses;
 
         /** Constructeur pour un bouton de catégorie / navigation. */
         public MenuItem(int slot, Material material, String name, List<String> lore,
@@ -315,6 +350,8 @@ public class MenuManager {
             this.materialLearned = null;
             this.customModelDataUnlearned = 0;
             this.customModelDataLearned = 0;
+            this.skillRequired = null;
+            this.bonuses = List.of();
         }
 
         /** Constructeur pour un bouton de connaissance. */
@@ -322,7 +359,8 @@ public class MenuManager {
                         String nameUnlearned, String nameLearned,
                         List<String> loreUnlearned, List<String> loreLearned,
                         Material materialUnlearned, Material materialLearned,
-                        int customModelDataUnlearned, int customModelDataLearned) {
+                        int customModelDataUnlearned, int customModelDataLearned,
+                        String skillRequired, List<String> bonuses) {
             this.slot = slot;
             this.knowledgeItem = true;
             this.knowledgeId = knowledgeId;
@@ -334,6 +372,8 @@ public class MenuManager {
             this.materialLearned = materialLearned;
             this.customModelDataUnlearned = customModelDataUnlearned;
             this.customModelDataLearned = customModelDataLearned;
+            this.skillRequired = skillRequired;
+            this.bonuses = bonuses != null ? bonuses : List.of();
             // Champs catégorie inutilisés
             this.material = null;
             this.name = null;
@@ -386,5 +426,8 @@ public class MenuManager {
         public String getSubmenu() { return submenu; }
         public String getPermission() { return permission; }
         public String getKnowledgeId() { return knowledgeId; }
+        public String getNameLearned() { return nameLearned; }
+        public String getSkillRequired() { return skillRequired; }
+        public List<String> getBonuses() { return bonuses; }
     }
 }

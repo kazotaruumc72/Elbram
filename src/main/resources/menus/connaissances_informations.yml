@@ -57,3 +57,15 @@ items:
     submenu: "informations/combat"
     permission: "elbram.informations.combat"
     # custom_model_data: 0
+
+  - slot: 22
+    material: COMPASS
+    name: "&6Exploration"
+    lore:
+      - "&7Secrets de l'exploration"
+      - ""
+      - "&cAccès non débloqué"
+    action: open_submenu
+    submenu: "informations/exploration"
+    permission: "elbram.informations.exploration"
+    # custom_model_data: 0

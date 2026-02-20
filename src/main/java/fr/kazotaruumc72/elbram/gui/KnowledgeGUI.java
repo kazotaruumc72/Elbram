@@ -113,7 +113,8 @@ public class KnowledgeGUI implements InventoryHolder {
     private String determineInitialMenu() {
         if (player.hasPermission("elbram.informations.tours")
                 || player.hasPermission("elbram.informations.construction")
-                || player.hasPermission("elbram.informations.combat")) {
+                || player.hasPermission("elbram.informations.combat")
+                || player.hasPermission("elbram.informations.exploration")) {
             return "connaissances_profil";
         }
         return "connaissances_informations";
