@@ -76,7 +76,8 @@ public class MenuManager {
             for (Object obj : rawList) {
                 if (obj instanceof Map<?, ?> raw) {
                     @SuppressWarnings("unchecked")
-                    items.addAll(parseMenuItems((Map<String, Object>) raw));
+                    Map<String, Object> map = (Map<String, Object>) raw;
+                    items.addAll(parseMenuItems(map));
                 }
             }
         }
