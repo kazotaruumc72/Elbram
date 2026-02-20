@@ -1,0 +1,84 @@
+# =============================================
+# Menu des informations sur l'Exploration
+# Accessible avec la permission :
+#   elbram.informations.exploration
+#
+# Les rangs de "Chercheur de Trésor" sont des
+# informations dérivées les unes des autres :
+#   Rang I  → aucun prérequis
+#   Rang II → nécessite Rang I
+#   Rang III→ nécessite Rang II
+#
+# Bonus accordé : "chest_loot:<rang>"
+# Utilisé par ChestBonusListener pour améliorer
+# le butin des coffres rechargés.
+# =============================================
+title: "&8Informations &7— &6Exploration"
+
+items:
+  - slot: 10
+    knowledge_id: "informations.exploration.chercheur_tresor_1"
+    name_unlearned: "&7Chercheur de Trésor I"
+    lore_unlearned:
+      - "&8Flair pour dénicher de bons objets"
+      - ""
+      - "&7Bonus : &eMeilleur butin dans les coffres rechargés"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    name_learned: "&a✔ Chercheur de Trésor I"
+    lore_learned:
+      - "&8Flair pour dénicher de bons objets"
+      - ""
+      - "&7Bonus : &eMeilleur butin dans les coffres rechargés"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "CHEST"
+    bonuses:
+      - "chest_loot:1"
+
+  - slot: 11
+    knowledge_id: "informations.exploration.chercheur_tresor_2"
+    skill_required: "informations.exploration.chercheur_tresor_1"
+    name_unlearned: "&7Chercheur de Trésor II"
+    lore_unlearned:
+      - "&8Instinct aiguisé pour les trésors cachés"
+      - ""
+      - "&7Bonus : &eButin encore plus rare dans les coffres rechargés"
+      - ""
+      - "&7Prérequis : &eChercheur de Trésor I"
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    name_learned: "&a✔ Chercheur de Trésor II"
+    lore_learned:
+      - "&8Instinct aiguisé pour les trésors cachés"
+      - ""
+      - "&7Bonus : &eButin encore plus rare dans les coffres rechargés"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "CHEST"
+    bonuses:
+      - "chest_loot:2"
+
+  - slot: 12
+    knowledge_id: "informations.exploration.chercheur_tresor_3"
+    skill_required: "informations.exploration.chercheur_tresor_2"
+    name_unlearned: "&7Chercheur de Trésor III"
+    lore_unlearned:
+      - "&8Maîtrise absolue de l'art du pillage"
+      - ""
+      - "&7Bonus : &eButin légendaire dans les coffres rechargés"
+      - ""
+      - "&7Prérequis : &eChercheur de Trésor II"
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    name_learned: "&a✔ Chercheur de Trésor III"
+    lore_learned:
+      - "&8Maîtrise absolue de l'art du pillage"
+      - ""
+      - "&7Bonus : &eButin légendaire dans les coffres rechargés"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "CHEST"
+    bonuses:
+      - "chest_loot:3"

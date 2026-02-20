@@ -58,7 +58,8 @@ public class GUIListener implements Listener {
     private void handleNavigationClick(Player player, KnowledgeGUI gui) {
         if (player.hasPermission("elbram.informations.tours")
                 || player.hasPermission("elbram.informations.construction")
-                || player.hasPermission("elbram.informations.combat")) {
+                || player.hasPermission("elbram.informations.combat")
+                || player.hasPermission("elbram.informations.exploration")) {
             gui.openMenu("connaissances_profil");
         } else {
             gui.openMenu("connaissances_informations");
@@ -81,6 +82,13 @@ public class GUIListener implements Listener {
 
         if (km.hasLearned(player.getUniqueId(), id)) {
             player.sendMessage("§aVous connaissez déjà cette information !");
+            return;
+        }
+
+        String skill = item.getSkillRequired();
+        if (skill != null && !skill.isEmpty() && !km.hasLearned(player.getUniqueId(), skill)) {
+            String skillName = plugin.getMenuManager().getKnowledgeName(skill);
+            player.sendMessage("§cPrérequis manquant : §e" + skillName);
             return;
         }
 

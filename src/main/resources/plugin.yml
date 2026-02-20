@@ -26,3 +26,12 @@ permissions:
   elbram.informations.tours:
     description: Accès aux informations sur les tours
     default: false
+  elbram.informations.construction:
+    description: Accès aux informations sur la construction
+    default: false
+  elbram.informations.combat:
+    description: Accès aux informations sur le combat
+    default: false
+  elbram.informations.exploration:
+    description: Accès aux informations sur l'exploration
+    default: false
