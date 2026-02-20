@@ -7,6 +7,21 @@
 title: "&8Connaissances &7— &6Sélection"
 
 items:
+  - slots: [0-8]
+    material: LIGHT_GRAY_STAINED_GLASS_PANE
+    name: ""
+    type: filler
+
+  - slots: [45-53]
+    material: LIGHT_GRAY_STAINED_GLASS_PANE
+    name: ""
+    type: filler
+
+  - slot: 49
+    material: BARRIER
+    name: ""
+    action: close
+
   - slot: 22
     material: STONE_BRICKS
     name: "&6Tours"

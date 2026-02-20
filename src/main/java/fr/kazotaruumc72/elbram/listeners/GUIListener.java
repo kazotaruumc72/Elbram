@@ -56,8 +56,10 @@ public class GUIListener implements Listener {
     // -------------------------------------------------------------------------
 
     private void handleNavigationClick(Player player, KnowledgeGUI gui) {
-        if (player.hasPermission("elbram.informations.tours")) {
-            gui.openMenu("informations/tours");
+        if (player.hasPermission("elbram.informations.tours")
+                || player.hasPermission("elbram.informations.construction")
+                || player.hasPermission("elbram.informations.combat")) {
+            gui.openMenu("connaissances_profil");
         } else {
             gui.openMenu("connaissances_informations");
         }
@@ -68,6 +70,8 @@ public class GUIListener implements Listener {
             learnKnowledge(player, gui, item);
         } else if ("open_submenu".equals(item.getAction())) {
             openSubmenu(player, gui, item);
+        } else if ("close".equals(item.getAction())) {
+            player.closeInventory();
         }
     }
 
