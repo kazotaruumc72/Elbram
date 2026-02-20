@@ -5,7 +5,10 @@ import fr.kazotaruumc72.elbram.gui.KnowledgeGUI;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+
+import java.util.List;
 
 /**
  * Gère la commande /profil.
@@ -14,7 +17,7 @@ import org.bukkit.entity.Player;
  *   - Première utilisation (aucune permission de catégorie) → menu des compétences
  *   - Sinon → menu des informations (skill tree)
  */
-public class ProfilCommand implements CommandExecutor {
+public class ProfilCommand implements CommandExecutor, TabCompleter {
 
     private final Elbram plugin;
 
@@ -32,5 +35,10 @@ public class ProfilCommand implements CommandExecutor {
         KnowledgeGUI gui = new KnowledgeGUI(plugin, player);
         gui.open();
         return true;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        return List.of();
     }
 }

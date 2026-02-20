@@ -25,7 +25,9 @@ public class Elbram extends JavaPlugin {
         ElbramCommand elbramCommand = new ElbramCommand(this);
         getCommand("elbram").setExecutor(elbramCommand);
         getCommand("elbram").setTabCompleter(elbramCommand);
-        getCommand("profil").setExecutor(new ProfilCommand(this));
+        ProfilCommand profilCommand = new ProfilCommand(this);
+        getCommand("profil").setExecutor(profilCommand);
+        getCommand("profil").setTabCompleter(profilCommand);
         getServer().getPluginManager().registerEvents(new GUIListener(this), this);
         getServer().getPluginManager().registerEvents(new ItemListener(this), this);
 
