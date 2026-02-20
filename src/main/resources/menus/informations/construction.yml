@@ -1,0 +1,92 @@
+# =============================================
+# Menu des informations sur la Construction
+# Accessible avec la permission :
+#   elbram.informations.construction
+# =============================================
+title: "&8Informations &7— &6Construction"
+
+items:
+  - slot: 10
+    knowledge_id: "informations.construction.murs"
+    name_unlearned: "&7Murs"
+    lore_unlearned:
+      - "&8Techniques de construction de murs"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
+    name_learned: "&a✔ Murs"
+    lore_learned:
+      - "&8Techniques de construction de murs"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "STONE_BRICK_WALL"
+    # custom_model_data_learned: 0
+
+  - slot: 11
+    knowledge_id: "informations.construction.fondations"
+    name_unlearned: "&7Fondations"
+    lore_unlearned:
+      - "&8Bases solides pour vos bâtiments"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
+    name_learned: "&a✔ Fondations"
+    lore_learned:
+      - "&8Bases solides pour vos bâtiments"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "SMOOTH_STONE"
+    # custom_model_data_learned: 0
+
+  - slot: 12
+    knowledge_id: "informations.construction.toitures"
+    name_unlearned: "&7Toitures"
+    lore_unlearned:
+      - "&8Techniques de couverture"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
+    name_learned: "&a✔ Toitures"
+    lore_learned:
+      - "&8Techniques de couverture"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "OAK_STAIRS"
+    # custom_model_data_learned: 0
+
+  - slot: 13
+    knowledge_id: "informations.construction.ponts"
+    name_unlearned: "&7Ponts"
+    lore_unlearned:
+      - "&8Construction de ponts et passerelles"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
+    name_learned: "&a✔ Ponts"
+    lore_learned:
+      - "&8Construction de ponts et passerelles"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "OAK_PLANKS"
+    # custom_model_data_learned: 0
+
+  - slot: 14
+    knowledge_id: "informations.construction.portes"
+    name_unlearned: "&7Portes fortifiées"
+    lore_unlearned:
+      - "&8Portes et entrées défensives"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
+    name_learned: "&a✔ Portes fortifiées"
+    lore_learned:
+      - "&8Portes et entrées défensives"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "OAK_DOOR"
+    # custom_model_data_learned: 0

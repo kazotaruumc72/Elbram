@@ -1,0 +1,92 @@
+# =============================================
+# Menu des informations sur le Combat
+# Accessible avec la permission :
+#   elbram.informations.combat
+# =============================================
+title: "&8Informations &7— &6Combat"
+
+items:
+  - slot: 10
+    knowledge_id: "informations.combat.epee"
+    name_unlearned: "&7Épée"
+    lore_unlearned:
+      - "&8Maîtrise du combat à l'épée"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
+    name_learned: "&a✔ Épée"
+    lore_learned:
+      - "&8Maîtrise du combat à l'épée"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "IRON_SWORD"
+    # custom_model_data_learned: 0
+
+  - slot: 11
+    knowledge_id: "informations.combat.arc"
+    name_unlearned: "&7Arc"
+    lore_unlearned:
+      - "&8Techniques de tir à l'arc"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
+    name_learned: "&a✔ Arc"
+    lore_learned:
+      - "&8Techniques de tir à l'arc"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "BOW"
+    # custom_model_data_learned: 0
+
+  - slot: 12
+    knowledge_id: "informations.combat.bouclier"
+    name_unlearned: "&7Bouclier"
+    lore_unlearned:
+      - "&8Défense et parade au bouclier"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
+    name_learned: "&a✔ Bouclier"
+    lore_learned:
+      - "&8Défense et parade au bouclier"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "SHIELD"
+    # custom_model_data_learned: 0
+
+  - slot: 13
+    knowledge_id: "informations.combat.hache"
+    name_unlearned: "&7Hache"
+    lore_unlearned:
+      - "&8Combat à la hache de guerre"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
+    name_learned: "&a✔ Hache"
+    lore_learned:
+      - "&8Combat à la hache de guerre"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "IRON_AXE"
+    # custom_model_data_learned: 0
+
+  - slot: 14
+    knowledge_id: "informations.combat.lance"
+    name_unlearned: "&7Lance"
+    lore_unlearned:
+      - "&8Maniement de la lance"
+      - ""
+      - "&eCliquez pour apprendre"
+    material_unlearned: "GRAY_STAINED_GLASS_PANE"
+    # custom_model_data_unlearned: 0
+    name_learned: "&a✔ Lance"
+    lore_learned:
+      - "&8Maniement de la lance"
+      - ""
+      - "&a&lAppris !"
+    material_learned: "TRIDENT"
+    # custom_model_data_learned: 0
