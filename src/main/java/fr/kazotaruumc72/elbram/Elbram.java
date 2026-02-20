@@ -1,5 +1,6 @@
 package fr.kazotaruumc72.elbram;
 
+import fr.kazotaruumc72.elbram.commands.ApprendreCommand;
 import fr.kazotaruumc72.elbram.commands.ElbramCommand;
 import fr.kazotaruumc72.elbram.commands.ProfilCommand;
 import fr.kazotaruumc72.elbram.listeners.ChestBonusListener;
@@ -33,6 +34,9 @@ public class Elbram extends JavaPlugin {
         ProfilCommand profilCommand = new ProfilCommand(this);
         getCommand("profil").setExecutor(profilCommand);
         getCommand("profil").setTabCompleter(profilCommand);
+        ApprendreCommand apprendreCommand = new ApprendreCommand(this);
+        getCommand("apprendre").setExecutor(apprendreCommand);
+        getCommand("apprendre").setTabCompleter(apprendreCommand);
         getServer().getPluginManager().registerEvents(new GUIListener(this), this);
         getServer().getPluginManager().registerEvents(new ItemListener(this), this);
         getServer().getPluginManager().registerEvents(new ChestBonusListener(this), this);

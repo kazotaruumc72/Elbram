@@ -8,6 +8,7 @@ title: "&8Informations &7— &6Construction"
 items:
   - slot: 10
     knowledge_id: "informations.construction.murs"
+    rarity: COMMON
     name_unlearned: "&7Murs"
     lore_unlearned:
       - "&8Techniques de construction de murs"
@@ -25,6 +26,7 @@ items:
 
   - slot: 11
     knowledge_id: "informations.construction.fondations"
+    rarity: COMMON
     name_unlearned: "&7Fondations"
     lore_unlearned:
       - "&8Bases solides pour vos bâtiments"
@@ -42,6 +44,7 @@ items:
 
   - slot: 12
     knowledge_id: "informations.construction.toitures"
+    rarity: UNCOMMON
     name_unlearned: "&7Toitures"
     lore_unlearned:
       - "&8Techniques de couverture"
@@ -59,6 +62,7 @@ items:
 
   - slot: 13
     knowledge_id: "informations.construction.ponts"
+    rarity: UNCOMMON
     name_unlearned: "&7Ponts"
     lore_unlearned:
       - "&8Construction de ponts et passerelles"
@@ -76,6 +80,7 @@ items:
 
   - slot: 14
     knowledge_id: "informations.construction.portes"
+    rarity: RARE
     name_unlearned: "&7Portes fortifiées"
     lore_unlearned:
       - "&8Portes et entrées défensives"
