@@ -1,6 +1,7 @@
 package fr.kazotaruumc72.elbram;
 
 import fr.kazotaruumc72.elbram.commands.ElbramCommand;
+import fr.kazotaruumc72.elbram.commands.ProfilCommand;
 import fr.kazotaruumc72.elbram.listeners.GUIListener;
 import fr.kazotaruumc72.elbram.listeners.ItemListener;
 import fr.kazotaruumc72.elbram.managers.KnowledgeManager;
@@ -24,6 +25,7 @@ public class Elbram extends JavaPlugin {
         ElbramCommand elbramCommand = new ElbramCommand(this);
         getCommand("elbram").setExecutor(elbramCommand);
         getCommand("elbram").setTabCompleter(elbramCommand);
+        getCommand("profil").setExecutor(new ProfilCommand(this));
         getServer().getPluginManager().registerEvents(new GUIListener(this), this);
         getServer().getPluginManager().registerEvents(new ItemListener(this), this);
 

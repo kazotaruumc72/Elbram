@@ -9,6 +9,9 @@ commands:
     description: Commande principale d'Elbram
     usage: /elbram <apprendre|reload>
     aliases: [elb]
+  profil:
+    description: Ouvre le menu de connaissances du joueur
+    usage: /profil
 
 permissions:
   elbram.apprendre:
